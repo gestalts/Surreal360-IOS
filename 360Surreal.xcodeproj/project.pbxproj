@@ -42,7 +42,6 @@
 		AC81AC262E9AA7C0001CE88C /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = AC81AC252E9AA7C0001CE88C /* Storage */; };
 		AC81AC282E9AA7C0001CE88C /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = AC81AC272E9AA7C0001CE88C /* Supabase */; };
 		AC81AC2A2E9AAE31001CE88C /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC81AC292E9AAE31001CE88C /* Config.plist */; };
-		AC81AC2C2E9AAF19001CE88C /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = AC81AC2B2E9AAF19001CE88C /* Config.xcconfig */; };
 		AC81AC2E2E9AAF32001CE88C /* FeatureFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC81AC2D2E9AAF32001CE88C /* FeatureFlags.swift */; };
 		AC81AC302E9AAF40001CE88C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = AC81AC2F2E9AAF40001CE88C /* .gitignore */; };
 		ACB7C7462EF2690800B289DF /* TwilioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB7C7442EF2690800B289DF /* TwilioService.swift */; };
@@ -128,29 +127,21 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		AC4D68FF2E9C9EFB0079F7FA /* Contacts */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = Contacts;
 			sourceTree = "<group>";
 		};
 		AC81ABA82E9AA4CA001CE88C /* _360Surreal */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = _360Surreal;
 			sourceTree = "<group>";
 		};
 		AC81ABB62E9AA4CC001CE88C /* 360SurrealTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = 360SurrealTests;
 			sourceTree = "<group>";
 		};
 		AC81ABC02E9AA4CC001CE88C /* 360SurrealUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = 360SurrealUITests;
 			sourceTree = "<group>";
 		};
@@ -755,7 +746,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2600;
-				LastUpgradeCheck = 2600;
+				LastUpgradeCheck = 2620;
 				TargetAttributes = {
 					AC81ABA52E9AA4CA001CE88C = {
 						CreatedOnToolsVersion = 26.0.1;
@@ -801,7 +792,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC81AC2A2E9AAE31001CE88C /* Config.plist in Resources */,
-				AC81AC2C2E9AAF19001CE88C /* Config.xcconfig in Resources */,
 				AC81AC172E9AA5F9001CE88C /* Config.xcconfig.example in Resources */,
 				AC81AC182E9AA5F9001CE88C /* Assets.xcassets in Resources */,
 				AC81AC302E9AAF40001CE88C /* .gitignore in Resources */,
@@ -833,9 +823,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-360Surreal/Pods-360Surreal-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-360Surreal/Pods-360Surreal-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1000,6 +994,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1058,6 +1053,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};

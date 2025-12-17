@@ -226,8 +226,8 @@ final class CallViewModel: ObservableObject {
 
     private func startDurationTimer() {
         durationTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
-            Task { @MainActor in
-                guard let self = self, let startTime = self.activeCall?.startTime else { return }
+            Task { @MainActor [weak self] in
+                guard let self, let startTime = self.activeCall?.startTime else { return }
                 self.activeCall?.duration = Date().timeIntervalSince(startTime)
             }
         }

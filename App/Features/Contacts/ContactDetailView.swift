@@ -137,6 +137,17 @@ struct ContactDetailView: View {
                                 .foregroundColor(.blue)
                         }
                     }
+
+                    if let phone = contact.primaryPhone {
+                        HStack(spacing: 4) {
+                            Image(systemName: "phone.fill")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                            Text(phone)
+                                .font(.subheadline)
+                                .foregroundColor(.blue)
+                        }
+                    }
                 }
 
                 Spacer()
@@ -168,31 +179,46 @@ struct ContactDetailView: View {
 
     private var actionButtons: some View {
         HStack(spacing: 12) {
-            if let email = contact.primaryEmail {
-                ActionButton(
-                    icon: "envelope.fill",
-                    title: "Email",
-                    color: .blue,
-                    action: { openEmail(email) }
-                )
-            }
+            // Call button - always visible
+            ActionButton(
+                icon: "phone.fill",
+                title: "Call",
+                color: contact.primaryPhone != nil ? .green : .gray,
+                action: {
+                    if let phone = contact.primaryPhone {
+                        callPhone(phone)
+                    }
+                }
+            )
+            .disabled(contact.primaryPhone == nil)
 
-            if let phone = contact.primaryPhone {
-                ActionButton(
-                    icon: "phone.fill",
-                    title: "Call",
-                    color: .green,
-                    action: { callPhone(phone) }
-                )
+            // Message button - always visible
+            ActionButton(
+                icon: "message.fill",
+                title: "Message",
+                color: contact.primaryPhone != nil ? .blue : .gray,
+                action: {
+                    if let phone = contact.primaryPhone {
+                        messagePhone(phone)
+                    }
+                }
+            )
+            .disabled(contact.primaryPhone == nil)
 
-                ActionButton(
-                    icon: "message.fill",
-                    title: "Message",
-                    color: .blue,
-                    action: { messagePhone(phone) }
-                )
-            }
+            // Email button - always visible
+            ActionButton(
+                icon: "envelope.fill",
+                title: "Email",
+                color: contact.primaryEmail != nil ? .orange : .gray,
+                action: {
+                    if let email = contact.primaryEmail {
+                        openEmail(email)
+                    }
+                }
+            )
+            .disabled(contact.primaryEmail == nil)
 
+            // Video button
             ActionButton(
                 icon: "video.fill",
                 title: "Video",
