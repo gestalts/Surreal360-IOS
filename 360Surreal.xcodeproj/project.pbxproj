@@ -6,6 +6,58 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		4F6FDEB4C0B65A0D0672054A /* Pods_360Surreal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 989797B1D955EA5F94AD5E97 /* Pods_360Surreal.framework */; };
+		AC4D68E72E9B3BED0079F7FA /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D68D02E9B3BED0079F7FA /* AuthViewModel.swift */; };
+		AC4D68E82E9B3BED0079F7FA /* PeopleNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D68DE2E9B3BED0079F7FA /* PeopleNavigationView.swift */; };
+		AC4D68E92E9B3BED0079F7FA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D68E32E9B3BED0079F7FA /* SettingsView.swift */; };
+		AC4D68EA2E9B3BED0079F7FA /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D68D42E9B3BED0079F7FA /* SignUpView.swift */; };
+		AC4D68EB2E9B3BED0079F7FA /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D68D72E9B3BED0079F7FA /* DashboardViewModel.swift */; };
+		AC4D68EC2E9B3BED0079F7FA /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D68D32E9B3BED0079F7FA /* SignInView.swift */; };
+		AC4D68ED2E9B3BED0079F7FA /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D68D92E9B3BED0079F7FA /* DashboardView.swift */; };
+		AC4D68EE2E9B3BED0079F7FA /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D68D22E9B3BED0079F7FA /* ResetPasswordView.swift */; };
+		AC4D68EF2E9B3BED0079F7FA /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D68DC2E9B3BED0079F7FA /* UsersViewModel.swift */; };
+		AC4D68F02E9B3BED0079F7FA /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D68DF2E9B3BED0079F7FA /* UserDetailView.swift */; };
+		AC4D68FC2E9C9D660079F7FA /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D68FB2E9C9D590079F7FA /* Contact.swift */; };
+		AC81AC052E9AA5D2001CE88C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC81ABE82E9AA5D2001CE88C /* User.swift */; };
+		AC81AC062E9AA5D2001CE88C /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC81ABEA2E9AA5D2001CE88C /* UserRepository.swift */; };
+		AC81AC072E9AA5D2001CE88C /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC81ABD52E9AA5D2001CE88C /* AuthenticationService.swift */; };
+		AC81AC082E9AA5D2001CE88C /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC81ABE72E9AA5D2001CE88C /* Organization.swift */; };
+		AC81AC092E9AA5D2001CE88C /* GetUsersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC81ABEC2E9AA5D2001CE88C /* GetUsersUseCase.swift */; };
+		AC81AC0A2E9AA5D2001CE88C /* UserRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC81ABE42E9AA5D2001CE88C /* UserRepositoryImpl.swift */; };
+		AC81AC0B2E9AA5D2001CE88C /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC81ABD22E9AA5D2001CE88C /* AppCoordinator.swift */; };
+		AC81AC0C2E9AA5D2001CE88C /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC81ABD02E9AA5D2001CE88C /* Environment.swift */; };
+		AC81AC0D2E9AA5D2001CE88C /* Surreal360App.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC81ABD32E9AA5D2001CE88C /* Surreal360App.swift */; };
+		AC81AC0E2E9AA5D2001CE88C /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC81ABE22E9AA5D2001CE88C /* UserDTO.swift */; };
+		AC81AC0F2E9AA5D2001CE88C /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC81ABDA2E9AA5D2001CE88C /* APIClient.swift */; };
+		AC81AC102E9AA5D2001CE88C /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC81ABD82E9AA5D2001CE88C /* DIContainer.swift */; };
+		AC81AC112E9AA5D2001CE88C /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC81ABD62E9AA5D2001CE88C /* TokenManager.swift */; };
+		AC81AC172E9AA5F9001CE88C /* Config.xcconfig.example in Resources */ = {isa = PBXBuildFile; fileRef = AC81AC122E9AA5F9001CE88C /* Config.xcconfig.example */; };
+		AC81AC182E9AA5F9001CE88C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC81AC152E9AA5F9001CE88C /* Assets.xcassets */; };
+		AC81AC1C2E9AA79E001CE88C /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = AC81AC1B2E9AA79E001CE88C /* KeychainAccess */; };
+		AC81AC1E2E9AA7C0001CE88C /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = AC81AC1D2E9AA7C0001CE88C /* Auth */; };
+		AC81AC202E9AA7C0001CE88C /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = AC81AC1F2E9AA7C0001CE88C /* Functions */; };
+		AC81AC222E9AA7C0001CE88C /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = AC81AC212E9AA7C0001CE88C /* PostgREST */; };
+		AC81AC242E9AA7C0001CE88C /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = AC81AC232E9AA7C0001CE88C /* Realtime */; };
+		AC81AC262E9AA7C0001CE88C /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = AC81AC252E9AA7C0001CE88C /* Storage */; };
+		AC81AC282E9AA7C0001CE88C /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = AC81AC272E9AA7C0001CE88C /* Supabase */; };
+		AC81AC2A2E9AAE31001CE88C /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC81AC292E9AAE31001CE88C /* Config.plist */; };
+		AC81AC2C2E9AAF19001CE88C /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = AC81AC2B2E9AAF19001CE88C /* Config.xcconfig */; };
+		AC81AC2E2E9AAF32001CE88C /* FeatureFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC81AC2D2E9AAF32001CE88C /* FeatureFlags.swift */; };
+		AC81AC302E9AAF40001CE88C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = AC81AC2F2E9AAF40001CE88C /* .gitignore */; };
+		ACB7C7462EF2690800B289DF /* TwilioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB7C7442EF2690800B289DF /* TwilioService.swift */; };
+		ACB7C74C2EF2694E00B289DF /* VoIPPushService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB7C7482EF2694E00B289DF /* VoIPPushService.swift */; };
+		ACB7C74E2EF2695600B289DF /* CallManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB7C74D2EF2695600B289DF /* CallManager.swift */; };
+		ACB7C7512EF269C400B289DF /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB7C74F2EF269C400B289DF /* Call.swift */; };
+		ACB7C7522EF269C400B289DF /* SMSConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB7C7502EF269C400B289DF /* SMSConversation.swift */; };
+		ACB7C7582EF269FC00B289DF /* ActiveCallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB7C7552EF269FC00B289DF /* ActiveCallView.swift */; };
+		ACB7C7592EF269FC00B289DF /* CallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB7C7532EF269FC00B289DF /* CallViewModel.swift */; };
+		ACB7C7622EF26A2600B289DF /* ConversationsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB7C75F2EF26A2600B289DF /* ConversationsListView.swift */; };
+		ACB7C7632EF26A2600B289DF /* SMSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB7C75A2EF26A2600B289DF /* SMSService.swift */; };
+		ACB7C7642EF26A2600B289DF /* ConversationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB7C75C2EF26A2600B289DF /* ConversationViewModel.swift */; };
+		ACB7C7652EF26A2600B289DF /* ConversationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB7C75E2EF26A2600B289DF /* ConversationDetailView.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		AC81ABB42E9AA4CC001CE88C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,24 +76,81 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A9AAA8CE8D52046B90AF971 /* Pods-360Surreal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-360Surreal.release.xcconfig"; path = "Target Support Files/Pods-360Surreal/Pods-360Surreal.release.xcconfig"; sourceTree = "<group>"; };
+		4B1D34E4AED98515713C6F65 /* Pods-360Surreal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-360Surreal.debug.xcconfig"; path = "Target Support Files/Pods-360Surreal/Pods-360Surreal.debug.xcconfig"; sourceTree = "<group>"; };
+		989797B1D955EA5F94AD5E97 /* Pods_360Surreal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_360Surreal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC4D68D02E9B3BED0079F7FA /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		AC4D68D22E9B3BED0079F7FA /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
+		AC4D68D32E9B3BED0079F7FA /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		AC4D68D42E9B3BED0079F7FA /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		AC4D68D72E9B3BED0079F7FA /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		AC4D68D92E9B3BED0079F7FA /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		AC4D68DC2E9B3BED0079F7FA /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
+		AC4D68DE2E9B3BED0079F7FA /* PeopleNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleNavigationView.swift; sourceTree = "<group>"; };
+		AC4D68DF2E9B3BED0079F7FA /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
+		AC4D68E32E9B3BED0079F7FA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		AC4D68FB2E9C9D590079F7FA /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		AC81ABA62E9AA4CA001CE88C /* 360Surreal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 360Surreal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC81ABB32E9AA4CC001CE88C /* 360SurrealTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 360SurrealTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC81ABBD2E9AA4CC001CE88C /* 360SurrealUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 360SurrealUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC81ABD02E9AA5D2001CE88C /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		AC81ABD22E9AA5D2001CE88C /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		AC81ABD32E9AA5D2001CE88C /* Surreal360App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Surreal360App.swift; sourceTree = "<group>"; };
+		AC81ABD52E9AA5D2001CE88C /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		AC81ABD62E9AA5D2001CE88C /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		AC81ABD82E9AA5D2001CE88C /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		AC81ABDA2E9AA5D2001CE88C /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		AC81ABE22E9AA5D2001CE88C /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
+		AC81ABE42E9AA5D2001CE88C /* UserRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryImpl.swift; sourceTree = "<group>"; };
+		AC81ABE72E9AA5D2001CE88C /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
+		AC81ABE82E9AA5D2001CE88C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		AC81ABEA2E9AA5D2001CE88C /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		AC81ABEC2E9AA5D2001CE88C /* GetUsersUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUsersUseCase.swift; sourceTree = "<group>"; };
+		AC81AC122E9AA5F9001CE88C /* Config.xcconfig.example */ = {isa = PBXFileReference; lastKnownFileType = text; path = Config.xcconfig.example; sourceTree = "<group>"; };
+		AC81AC152E9AA5F9001CE88C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AC81AC292E9AAE31001CE88C /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
+		AC81AC2B2E9AAF19001CE88C /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		AC81AC2D2E9AAF32001CE88C /* FeatureFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlags.swift; sourceTree = "<group>"; };
+		AC81AC2F2E9AAF40001CE88C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		ACB7C7442EF2690800B289DF /* TwilioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwilioService.swift; sourceTree = "<group>"; };
+		ACB7C7482EF2694E00B289DF /* VoIPPushService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoIPPushService.swift; sourceTree = "<group>"; };
+		ACB7C74D2EF2695600B289DF /* CallManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallManager.swift; sourceTree = "<group>"; };
+		ACB7C74F2EF269C400B289DF /* Call.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
+		ACB7C7502EF269C400B289DF /* SMSConversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSConversation.swift; sourceTree = "<group>"; };
+		ACB7C7532EF269FC00B289DF /* CallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallViewModel.swift; sourceTree = "<group>"; };
+		ACB7C7552EF269FC00B289DF /* ActiveCallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveCallView.swift; sourceTree = "<group>"; };
+		ACB7C75A2EF26A2600B289DF /* SMSService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSService.swift; sourceTree = "<group>"; };
+		ACB7C75C2EF26A2600B289DF /* ConversationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewModel.swift; sourceTree = "<group>"; };
+		ACB7C75E2EF26A2600B289DF /* ConversationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationDetailView.swift; sourceTree = "<group>"; };
+		ACB7C75F2EF26A2600B289DF /* ConversationsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		AC81ABA82E9AA4CA001CE88C /* 360Surreal */ = {
+		AC4D68FF2E9C9EFB0079F7FA /* Contacts */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = 360Surreal;
+			exceptions = (
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		AC81ABA82E9AA4CA001CE88C /* _360Surreal */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
+			path = _360Surreal;
 			sourceTree = "<group>";
 		};
 		AC81ABB62E9AA4CC001CE88C /* 360SurrealTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = 360SurrealTests;
 			sourceTree = "<group>";
 		};
 		AC81ABC02E9AA4CC001CE88C /* 360SurrealUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = 360SurrealUITests;
 			sourceTree = "<group>";
 		};
@@ -52,6 +161,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC81AC282E9AA7C0001CE88C /* Supabase in Frameworks */,
+				AC81AC262E9AA7C0001CE88C /* Storage in Frameworks */,
+				AC81AC222E9AA7C0001CE88C /* PostgREST in Frameworks */,
+				AC81AC202E9AA7C0001CE88C /* Functions in Frameworks */,
+				AC81AC1E2E9AA7C0001CE88C /* Auth in Frameworks */,
+				AC81AC242E9AA7C0001CE88C /* Realtime in Frameworks */,
+				AC81AC1C2E9AA79E001CE88C /* KeychainAccess in Frameworks */,
+				4F6FDEB4C0B65A0D0672054A /* Pods_360Surreal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,13 +189,154 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2708876E207892C5387E56C9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				989797B1D955EA5F94AD5E97 /* Pods_360Surreal.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3582DC23DD10338C7B896DE2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4B1D34E4AED98515713C6F65 /* Pods-360Surreal.debug.xcconfig */,
+				2A9AAA8CE8D52046B90AF971 /* Pods-360Surreal.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		AC4D68D12E9B3BED0079F7FA /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AC4D68D02E9B3BED0079F7FA /* AuthViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		AC4D68D52E9B3BED0079F7FA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AC4D68D22E9B3BED0079F7FA /* ResetPasswordView.swift */,
+				AC4D68D32E9B3BED0079F7FA /* SignInView.swift */,
+				AC4D68D42E9B3BED0079F7FA /* SignUpView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AC4D68D62E9B3BED0079F7FA /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				AC4D68D12E9B3BED0079F7FA /* ViewModels */,
+				AC4D68D52E9B3BED0079F7FA /* Views */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		AC4D68D82E9B3BED0079F7FA /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AC4D68D72E9B3BED0079F7FA /* DashboardViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		AC4D68DA2E9B3BED0079F7FA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AC4D68D92E9B3BED0079F7FA /* DashboardView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AC4D68DB2E9B3BED0079F7FA /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				AC4D68D82E9B3BED0079F7FA /* ViewModels */,
+				AC4D68DA2E9B3BED0079F7FA /* Views */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		AC4D68DD2E9B3BED0079F7FA /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AC4D68DC2E9B3BED0079F7FA /* UsersViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		AC4D68E02E9B3BED0079F7FA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AC4D68DE2E9B3BED0079F7FA /* PeopleNavigationView.swift */,
+				AC4D68DF2E9B3BED0079F7FA /* UserDetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AC4D68E12E9B3BED0079F7FA /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				AC4D68DD2E9B3BED0079F7FA /* ViewModels */,
+				AC4D68E02E9B3BED0079F7FA /* Views */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		AC4D68E22E9B3BED0079F7FA /* People */ = {
+			isa = PBXGroup;
+			children = (
+				AC4D68E12E9B3BED0079F7FA /* Users */,
+			);
+			path = People;
+			sourceTree = "<group>";
+		};
+		AC4D68E42E9B3BED0079F7FA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AC4D68E32E9B3BED0079F7FA /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AC4D68E52E9B3BED0079F7FA /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				AC4D68E42E9B3BED0079F7FA /* Views */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		AC4D68E62E9B3BED0079F7FA /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				AC4D68FF2E9C9EFB0079F7FA /* Contacts */,
+				AC4D68D62E9B3BED0079F7FA /* Authentication */,
+				AC4D68DB2E9B3BED0079F7FA /* Dashboard */,
+				AC4D68E22E9B3BED0079F7FA /* People */,
+				AC4D68E52E9B3BED0079F7FA /* Settings */,
+				ACB7C7572EF269FC00B289DF /* Calling */,
+				ACB7C7612EF26A2600B289DF /* Messaging */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
 		AC81AB9D2E9AA4CA001CE88C = {
 			isa = PBXGroup;
 			children = (
-				AC81ABA82E9AA4CA001CE88C /* 360Surreal */,
+				AC81ABD42E9AA5D2001CE88C /* App */,
+				AC81ABDE2E9AA5D2001CE88C /* Core */,
+				AC81ABE62E9AA5D2001CE88C /* Data */,
+				AC81ABEE2E9AA5D2001CE88C /* Domain */,
+				AC81AC042E9AA5D2001CE88C /* Shared */,
+				AC81ABA82E9AA4CA001CE88C /* _360Surreal */,
 				AC81ABB62E9AA4CC001CE88C /* 360SurrealTests */,
 				AC81ABC02E9AA4CC001CE88C /* 360SurrealUITests */,
 				AC81ABA72E9AA4CA001CE88C /* Products */,
+				AC81AC162E9AA5F9001CE88C /* Resources */,
+				3582DC23DD10338C7B896DE2 /* Pods */,
+				2708876E207892C5387E56C9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,6 +350,326 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		AC81ABD12E9AA5D2001CE88C /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				AC81ABD02E9AA5D2001CE88C /* Environment.swift */,
+				AC81AC292E9AAE31001CE88C /* Config.plist */,
+				AC81AC2B2E9AAF19001CE88C /* Config.xcconfig */,
+				AC81AC2D2E9AAF32001CE88C /* FeatureFlags.swift */,
+				AC81AC2F2E9AAF40001CE88C /* .gitignore */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		AC81ABD42E9AA5D2001CE88C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				AC81ABD12E9AA5D2001CE88C /* Configuration */,
+				AC81ABD22E9AA5D2001CE88C /* AppCoordinator.swift */,
+				AC81ABD32E9AA5D2001CE88C /* Surreal360App.swift */,
+				AC4D68E62E9B3BED0079F7FA /* Features */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		AC81ABD72E9AA5D2001CE88C /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				AC81ABD52E9AA5D2001CE88C /* AuthenticationService.swift */,
+				AC81ABD62E9AA5D2001CE88C /* TokenManager.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		AC81ABD92E9AA5D2001CE88C /* DependencyInjection */ = {
+			isa = PBXGroup;
+			children = (
+				AC81ABD82E9AA5D2001CE88C /* DIContainer.swift */,
+			);
+			path = DependencyInjection;
+			sourceTree = "<group>";
+		};
+		AC81ABDB2E9AA5D2001CE88C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				AC81ABDA2E9AA5D2001CE88C /* APIClient.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		AC81ABDC2E9AA5D2001CE88C /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		AC81ABDD2E9AA5D2001CE88C /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		AC81ABDE2E9AA5D2001CE88C /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				ACB7C74B2EF2694E00B289DF /* Services */,
+				AC81ABD72E9AA5D2001CE88C /* Authentication */,
+				AC81ABD92E9AA5D2001CE88C /* DependencyInjection */,
+				AC81ABDB2E9AA5D2001CE88C /* Networking */,
+				AC81ABDC2E9AA5D2001CE88C /* Storage */,
+				AC81ABDD2E9AA5D2001CE88C /* Utilities */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		AC81ABDF2E9AA5D2001CE88C /* Local */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		AC81ABE02E9AA5D2001CE88C /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		AC81ABE12E9AA5D2001CE88C /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				AC81ABDF2E9AA5D2001CE88C /* Local */,
+				AC81ABE02E9AA5D2001CE88C /* Remote */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
+		AC81ABE32E9AA5D2001CE88C /* DTOs */ = {
+			isa = PBXGroup;
+			children = (
+				AC81ABE22E9AA5D2001CE88C /* UserDTO.swift */,
+			);
+			path = DTOs;
+			sourceTree = "<group>";
+		};
+		AC81ABE52E9AA5D2001CE88C /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				AC81ABE42E9AA5D2001CE88C /* UserRepositoryImpl.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		AC81ABE62E9AA5D2001CE88C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				AC81ABE12E9AA5D2001CE88C /* DataSources */,
+				AC81ABE32E9AA5D2001CE88C /* DTOs */,
+				AC81ABE52E9AA5D2001CE88C /* Repositories */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		AC81ABE92E9AA5D2001CE88C /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				AC4D68FB2E9C9D590079F7FA /* Contact.swift */,
+				AC81ABE72E9AA5D2001CE88C /* Organization.swift */,
+				AC81ABE82E9AA5D2001CE88C /* User.swift */,
+				ACB7C74F2EF269C400B289DF /* Call.swift */,
+				ACB7C7502EF269C400B289DF /* SMSConversation.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		AC81ABEB2E9AA5D2001CE88C /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				AC81ABEA2E9AA5D2001CE88C /* UserRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		AC81ABED2E9AA5D2001CE88C /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				AC81ABEC2E9AA5D2001CE88C /* GetUsersUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		AC81ABEE2E9AA5D2001CE88C /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				AC81ABE92E9AA5D2001CE88C /* Entities */,
+				AC81ABEB2E9AA5D2001CE88C /* Repositories */,
+				AC81ABED2E9AA5D2001CE88C /* UseCases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		AC81ABFF2E9AA5D2001CE88C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AC81AC002E9AA5D2001CE88C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		AC81AC012E9AA5D2001CE88C /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		AC81AC022E9AA5D2001CE88C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				AC81AC002E9AA5D2001CE88C /* Components */,
+				AC81AC012E9AA5D2001CE88C /* Styles */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		AC81AC032E9AA5D2001CE88C /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		AC81AC042E9AA5D2001CE88C /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				AC81ABFF2E9AA5D2001CE88C /* Extensions */,
+				AC81AC022E9AA5D2001CE88C /* UI */,
+				AC81AC032E9AA5D2001CE88C /* Utilities */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		AC81AC132E9AA5F9001CE88C /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				AC81AC122E9AA5F9001CE88C /* Config.xcconfig.example */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		AC81AC142E9AA5F9001CE88C /* Localizations */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Localizations;
+			sourceTree = "<group>";
+		};
+		AC81AC162E9AA5F9001CE88C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AC81AC132E9AA5F9001CE88C /* Configuration */,
+				AC81AC142E9AA5F9001CE88C /* Localizations */,
+				AC81AC152E9AA5F9001CE88C /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		ACB7C7492EF2694E00B289DF /* Push */ = {
+			isa = PBXGroup;
+			children = (
+				ACB7C7482EF2694E00B289DF /* VoIPPushService.swift */,
+			);
+			path = Push;
+			sourceTree = "<group>";
+		};
+		ACB7C74A2EF2694E00B289DF /* Twilio */ = {
+			isa = PBXGroup;
+			children = (
+				ACB7C7442EF2690800B289DF /* TwilioService.swift */,
+				ACB7C74D2EF2695600B289DF /* CallManager.swift */,
+			);
+			path = Twilio;
+			sourceTree = "<group>";
+		};
+		ACB7C74B2EF2694E00B289DF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				ACB7C7492EF2694E00B289DF /* Push */,
+				ACB7C74A2EF2694E00B289DF /* Twilio */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		ACB7C7542EF269FC00B289DF /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				ACB7C7532EF269FC00B289DF /* CallViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		ACB7C7562EF269FC00B289DF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ACB7C7552EF269FC00B289DF /* ActiveCallView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ACB7C7572EF269FC00B289DF /* Calling */ = {
+			isa = PBXGroup;
+			children = (
+				ACB7C7542EF269FC00B289DF /* ViewModels */,
+				ACB7C7562EF269FC00B289DF /* Views */,
+			);
+			path = Calling;
+			sourceTree = "<group>";
+		};
+		ACB7C75B2EF26A2600B289DF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				ACB7C75A2EF26A2600B289DF /* SMSService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		ACB7C75D2EF26A2600B289DF /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				ACB7C75C2EF26A2600B289DF /* ConversationViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		ACB7C7602EF26A2600B289DF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ACB7C75E2EF26A2600B289DF /* ConversationDetailView.swift */,
+				ACB7C75F2EF26A2600B289DF /* ConversationsListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ACB7C7612EF26A2600B289DF /* Messaging */ = {
+			isa = PBXGroup;
+			children = (
+				ACB7C75B2EF26A2600B289DF /* Services */,
+				ACB7C75D2EF26A2600B289DF /* ViewModels */,
+				ACB7C7602EF26A2600B289DF /* Views */,
+			);
+			path = Messaging;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -99,19 +677,29 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AC81ABC72E9AA4CC001CE88C /* Build configuration list for PBXNativeTarget "360Surreal" */;
 			buildPhases = (
+				8314AE5B75058131192C3DA4 /* [CP] Check Pods Manifest.lock */,
 				AC81ABA22E9AA4CA001CE88C /* Sources */,
 				AC81ABA32E9AA4CA001CE88C /* Frameworks */,
 				AC81ABA42E9AA4CA001CE88C /* Resources */,
+				3C71C517BA638AB6BB0CC179 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				AC81ABA82E9AA4CA001CE88C /* 360Surreal */,
+				AC4D68FF2E9C9EFB0079F7FA /* Contacts */,
+				AC81ABA82E9AA4CA001CE88C /* _360Surreal */,
 			);
 			name = 360Surreal;
 			packageProductDependencies = (
+				AC81AC1B2E9AA79E001CE88C /* KeychainAccess */,
+				AC81AC1D2E9AA7C0001CE88C /* Auth */,
+				AC81AC1F2E9AA7C0001CE88C /* Functions */,
+				AC81AC212E9AA7C0001CE88C /* PostgREST */,
+				AC81AC232E9AA7C0001CE88C /* Realtime */,
+				AC81AC252E9AA7C0001CE88C /* Storage */,
+				AC81AC272E9AA7C0001CE88C /* Supabase */,
 			);
 			productName = 360Surreal;
 			productReference = AC81ABA62E9AA4CA001CE88C /* 360Surreal.app */;
@@ -134,8 +722,6 @@
 				AC81ABB62E9AA4CC001CE88C /* 360SurrealTests */,
 			);
 			name = 360SurrealTests;
-			packageProductDependencies = (
-			);
 			productName = 360SurrealTests;
 			productReference = AC81ABB32E9AA4CC001CE88C /* 360SurrealTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -157,8 +743,6 @@
 				AC81ABC02E9AA4CC001CE88C /* 360SurrealUITests */,
 			);
 			name = 360SurrealUITests;
-			packageProductDependencies = (
-			);
 			productName = 360SurrealUITests;
 			productReference = AC81ABBD2E9AA4CC001CE88C /* 360SurrealUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -195,6 +779,10 @@
 			);
 			mainGroup = AC81AB9D2E9AA4CA001CE88C;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				AC81AC192E9AA768001CE88C /* XCRemoteSwiftPackageReference "supabase-swift" */,
+				AC81AC1A2E9AA79E001CE88C /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = AC81ABA72E9AA4CA001CE88C /* Products */;
 			projectDirPath = "";
@@ -212,6 +800,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC81AC2A2E9AAE31001CE88C /* Config.plist in Resources */,
+				AC81AC2C2E9AAF19001CE88C /* Config.xcconfig in Resources */,
+				AC81AC172E9AA5F9001CE88C /* Config.xcconfig.example in Resources */,
+				AC81AC182E9AA5F9001CE88C /* Assets.xcassets in Resources */,
+				AC81AC302E9AAF40001CE88C /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,11 +824,89 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3C71C517BA638AB6BB0CC179 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-360Surreal/Pods-360Surreal-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-360Surreal/Pods-360Surreal-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-360Surreal/Pods-360Surreal-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8314AE5B75058131192C3DA4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-360Surreal-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AC81ABA22E9AA4CA001CE88C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACB7C7582EF269FC00B289DF /* ActiveCallView.swift in Sources */,
+				ACB7C7592EF269FC00B289DF /* CallViewModel.swift in Sources */,
+				ACB7C74E2EF2695600B289DF /* CallManager.swift in Sources */,
+				AC81AC052E9AA5D2001CE88C /* User.swift in Sources */,
+				AC81AC062E9AA5D2001CE88C /* UserRepository.swift in Sources */,
+				AC81AC072E9AA5D2001CE88C /* AuthenticationService.swift in Sources */,
+				AC81AC082E9AA5D2001CE88C /* Organization.swift in Sources */,
+				AC81AC092E9AA5D2001CE88C /* GetUsersUseCase.swift in Sources */,
+				AC81AC0A2E9AA5D2001CE88C /* UserRepositoryImpl.swift in Sources */,
+				AC81AC0B2E9AA5D2001CE88C /* AppCoordinator.swift in Sources */,
+				AC81AC0C2E9AA5D2001CE88C /* Environment.swift in Sources */,
+				AC4D68E72E9B3BED0079F7FA /* AuthViewModel.swift in Sources */,
+				AC4D68FC2E9C9D660079F7FA /* Contact.swift in Sources */,
+				AC4D68E82E9B3BED0079F7FA /* PeopleNavigationView.swift in Sources */,
+				AC4D68E92E9B3BED0079F7FA /* SettingsView.swift in Sources */,
+				AC4D68EA2E9B3BED0079F7FA /* SignUpView.swift in Sources */,
+				AC4D68EB2E9B3BED0079F7FA /* DashboardViewModel.swift in Sources */,
+				AC4D68EC2E9B3BED0079F7FA /* SignInView.swift in Sources */,
+				ACB7C7462EF2690800B289DF /* TwilioService.swift in Sources */,
+				AC4D68ED2E9B3BED0079F7FA /* DashboardView.swift in Sources */,
+				AC4D68EE2E9B3BED0079F7FA /* ResetPasswordView.swift in Sources */,
+				AC4D68EF2E9B3BED0079F7FA /* UsersViewModel.swift in Sources */,
+				ACB7C7622EF26A2600B289DF /* ConversationsListView.swift in Sources */,
+				ACB7C7632EF26A2600B289DF /* SMSService.swift in Sources */,
+				ACB7C7642EF26A2600B289DF /* ConversationViewModel.swift in Sources */,
+				ACB7C7652EF26A2600B289DF /* ConversationDetailView.swift in Sources */,
+				AC4D68F02E9B3BED0079F7FA /* UserDetailView.swift in Sources */,
+				AC81AC2E2E9AAF32001CE88C /* FeatureFlags.swift in Sources */,
+				AC81AC0D2E9AA5D2001CE88C /* Surreal360App.swift in Sources */,
+				AC81AC0E2E9AA5D2001CE88C /* UserDTO.swift in Sources */,
+				AC81AC0F2E9AA5D2001CE88C /* APIClient.swift in Sources */,
+				ACB7C7512EF269C400B289DF /* Call.swift in Sources */,
+				ACB7C7522EF269C400B289DF /* SMSConversation.swift in Sources */,
+				ACB7C74C2EF2694E00B289DF /* VoIPPushService.swift in Sources */,
+				AC81AC102E9AA5D2001CE88C /* DIContainer.swift in Sources */,
+				AC81AC112E9AA5D2001CE88C /* TokenManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +942,7 @@
 /* Begin XCBuildConfiguration section */
 		AC81ABC52E9AA4CC001CE88C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC81AC2B2E9AAF19001CE88C /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -307,7 +979,7 @@
 				DEVELOPMENT_TEAM = R6V4A724KN;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -335,6 +1007,7 @@
 		};
 		AC81ABC62E9AA4CC001CE88C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC81AC2B2E9AAF19001CE88C /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -371,7 +1044,7 @@
 				DEVELOPMENT_TEAM = R6V4A724KN;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -392,6 +1065,7 @@
 		};
 		AC81ABC82E9AA4CC001CE88C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B1D34E4AED98515713C6F65 /* Pods-360Surreal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -411,6 +1085,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.360surreal.crm.-60Surreal";
+				PRODUCT_MODULE_NAME = _360Surreal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -424,6 +1099,7 @@
 		};
 		AC81ABC92E9AA4CC001CE88C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A9AAA8CE8D52046B90AF971 /* Pods-360Surreal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -443,6 +1119,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.360surreal.crm.-60Surreal";
+				PRODUCT_MODULE_NAME = _360Surreal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -465,6 +1142,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.360surreal.crm.-60SurrealTests";
+				PRODUCT_MODULE_NAME = _360Surreal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -487,6 +1165,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.360surreal.crm.-60SurrealTests";
+				PRODUCT_MODULE_NAME = _360Surreal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -507,6 +1186,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.360surreal.crm.-60SurrealUITests";
+				PRODUCT_MODULE_NAME = _360SurrealUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -527,6 +1207,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.360surreal.crm.-60SurrealUITests";
+				PRODUCT_MODULE_NAME = _360SurrealUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -578,6 +1259,63 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AC81AC192E9AA768001CE88C /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase-community/supabase-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.1;
+			};
+		};
+		AC81AC1A2E9AA79E001CE88C /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AC81AC1B2E9AA79E001CE88C /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC81AC1A2E9AA79E001CE88C /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+		AC81AC1D2E9AA7C0001CE88C /* Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC81AC192E9AA768001CE88C /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Auth;
+		};
+		AC81AC1F2E9AA7C0001CE88C /* Functions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC81AC192E9AA768001CE88C /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Functions;
+		};
+		AC81AC212E9AA7C0001CE88C /* PostgREST */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC81AC192E9AA768001CE88C /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = PostgREST;
+		};
+		AC81AC232E9AA7C0001CE88C /* Realtime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC81AC192E9AA768001CE88C /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Realtime;
+		};
+		AC81AC252E9AA7C0001CE88C /* Storage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC81AC192E9AA768001CE88C /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Storage;
+		};
+		AC81AC272E9AA7C0001CE88C /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC81AC192E9AA768001CE88C /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AC81AB9E2E9AA4CA001CE88C /* Project object */;
 }

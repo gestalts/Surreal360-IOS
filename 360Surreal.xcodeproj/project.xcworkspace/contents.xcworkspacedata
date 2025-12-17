@@ -4,4 +4,44 @@
    <FileRef
       location = "self:">
    </FileRef>
+   <FileRef
+      location = "group:ContactsNavigationView.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Contact.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ContactsViewModel.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ContactDTO.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ContactRepository.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ContactRepositoryImpl.swift">
+   </FileRef>
+   <FileRef
+      location = "group:GetContactsUseCase.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ContactsModule.swift">
+   </FileRef>
+   <Group
+      location = "group:Contacts"
+      name = "Contacts">
+   </Group>
+   <FileRef
+      location = "group:FeaturesContactsModelsContact.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ContactModel.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Contact.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ContactDomain.swift">
+   </FileRef>
 </Workspace>

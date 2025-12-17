@@ -1,0 +1,6 @@
+framework module Pods_360Surreal {
+  umbrella header "Pods-360Surreal-umbrella.h"
+
+  export *
+  module * { export * }
+}

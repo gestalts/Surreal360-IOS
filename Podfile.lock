@@ -1,0 +1,16 @@
+PODS:
+  - TwilioVoice (6.13.5)
+
+DEPENDENCIES:
+  - TwilioVoice (~> 6.0)
+
+SPEC REPOS:
+  trunk:
+    - TwilioVoice
+
+SPEC CHECKSUMS:
+  TwilioVoice: 237d012c91fc149943589628703dfd6c7cb2eb31
+
+PODFILE CHECKSUM: 3b6c5ee4481d934243ebb32f9d89bb60cffe4540
+
+COCOAPODS: 1.16.2

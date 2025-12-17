@@ -1,0 +1,14 @@
+// Configuration file for Surreal360 iOS App
+// This file contains environment variables and should NOT be committed to version control
+
+BACKEND_URL = https://healthy-adversely-glider.ngrok-free.app
+SUPABASE_URL = https://hwzrzuryvvlmryuazzbl.supabase.co
+SUPABASE_ANON_KEY = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh3enJ6dXJ5dnZsbXJ5dWF6emJsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgxNDE4MjQsImV4cCI6MjA0MzcxNzgyNH0.H8b4RDFkTVSWb_I6gbCjrr0v9_8Md_EjvFlR_88u_V8
+MAPBOX_API_KEY = pk.eyJ1IjoibXljcmVlazc2NyIsImEiOiJjazlv...
+
+// Feature Flags
+ENABLE_REALTIME = NO
+ENABLE_ML_TAGS = YES
+ENABLE_DYNAMIC_TAGS = YES
+MVP_AUTHENTICATION = YES
+MVP_DASHBOARD = YES

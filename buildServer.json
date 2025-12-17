@@ -1,0 +1,19 @@
+{
+	"name": "xcode build server",
+	"version": "0.2",
+	"bspVersion": "2.0",
+	"languages": [
+		"c",
+		"cpp",
+		"objective-c",
+		"objective-cpp",
+		"swift"
+	],
+	"argv": [
+		"/Users/williamloftus/.cursor/extensions/fireplusteam.vscode-ios-0.5.11/xcode-build-server/xcode-build-server"
+	],
+	"workspace": "/Users/williamloftus/Surreal360-iOS/360Surreal/360Surreal.xcodeproj/project.xcworkspace",
+	"build_root": "/Users/williamloftus/Library/Developer/Xcode/DerivedData/360Surreal-bfvhebecmfpdaibwfcrtvxljyews",
+	"scheme": "360Surreal",
+	"kind": "xcode"
+}
