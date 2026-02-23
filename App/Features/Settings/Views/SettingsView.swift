@@ -156,6 +156,10 @@ struct NotificationsView: View {
 }
 
 struct PrivacyView: View {
+    @State private var showingClearCacheConfirmation = false
+    @State private var showingCacheClearedAlert = false
+    @State private var clearedCacheSize: String = ""
+
     var body: some View {
         Form {
             Section("Security") {
@@ -165,12 +169,69 @@ struct PrivacyView: View {
 
             Section {
                 Button("Clear Cache") {
-                    // TODO: Implement
+                    showingClearCacheConfirmation = true
                 }
+            } footer: {
+                Text("Clears downloaded images, temporary files, and cached network responses.")
             }
         }
         .navigationTitle("Privacy & Security")
         .navigationBarTitleDisplayMode(.inline)
+        .confirmationDialog("Clear Cache", isPresented: $showingClearCacheConfirmation) {
+            Button("Clear Cache", role: .destructive) {
+                clearedCacheSize = clearCache()
+                showingCacheClearedAlert = true
+            }
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text("This will remove all cached data. This action cannot be undone.")
+        }
+        .alert("Cache Cleared", isPresented: $showingCacheClearedAlert) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text("Freed \(clearedCacheSize) of cached data.")
+        }
+    }
+
+    private func clearCache() -> String {
+        var totalBytes: Int64 = 0
+
+        // Clear URLCache
+        let urlCacheSize = Int64(URLCache.shared.currentDiskUsage + URLCache.shared.currentMemoryUsage)
+        totalBytes += urlCacheSize
+        URLCache.shared.removeAllCachedResponses()
+
+        // Clear temporary files
+        let tmpDirectory = FileManager.default.temporaryDirectory
+        if let files = try? FileManager.default.contentsOfDirectory(
+            at: tmpDirectory,
+            includingPropertiesForKeys: [.fileSizeKey],
+            options: .skipsHiddenFiles
+        ) {
+            for file in files {
+                if let fileSize = try? file.resourceValues(forKeys: [.fileSizeKey]).fileSize {
+                    totalBytes += Int64(fileSize)
+                }
+                try? FileManager.default.removeItem(at: file)
+            }
+        }
+
+        // Clear caches directory
+        if let cachesDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first,
+           let files = try? FileManager.default.contentsOfDirectory(
+               at: cachesDirectory,
+               includingPropertiesForKeys: [.fileSizeKey],
+               options: .skipsHiddenFiles
+           ) {
+            for file in files {
+                if let fileSize = try? file.resourceValues(forKeys: [.fileSizeKey]).fileSize {
+                    totalBytes += Int64(fileSize)
+                }
+                try? FileManager.default.removeItem(at: file)
+            }
+        }
+
+        return ByteCountFormatter.string(fromByteCount: totalBytes, countStyle: .file)
     }
 }
 
