@@ -37,7 +37,12 @@ struct ContactsListView: View {
                 Text(viewModel.errorMessage)
             }
             .sheet(isPresented: $showingAddContact) {
-                AddContactView()
+                AddContactView(
+                    createContactUseCase: container.makeCreateContactUseCase(),
+                    onContactCreated: {
+                        Task { await viewModel.loadContacts() }
+                    }
+                )
             }
             .task { await viewModel.loadContacts() }
             .onChange(of: searchText) { _, newValue in
@@ -190,7 +195,7 @@ struct ContactsEmptyStateView: View {
     }
 }
 
-// MARK: - Add Contact View (Placeholder)
+// MARK: - Add Contact View
 
 struct AddContactView: View {
     @SwiftUI.Environment(\.dismiss) private var dismiss
@@ -202,6 +207,17 @@ struct AddContactView: View {
     @State private var jobTitle = ""
     @State private var notes = ""
     @State private var isFavorite = false
+    @State private var isSaving = false
+    @State private var showError = false
+    @State private var errorMessage = ""
+
+    private let createContactUseCase: CreateContactUseCase
+    var onContactCreated: (() -> Void)?
+
+    init(createContactUseCase: CreateContactUseCase, onContactCreated: (() -> Void)? = nil) {
+        self.createContactUseCase = createContactUseCase
+        self.onContactCreated = onContactCreated
+    }
 
     var body: some View {
         NavigationStack {
@@ -234,21 +250,64 @@ struct AddContactView: View {
                     Button("Cancel") {
                         dismiss()
                     }
+                    .disabled(isSaving)
                 }
 
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Save") {
-                        saveContact()
+                    if isSaving {
+                        ProgressView()
+                    } else {
+                        Button("Save") {
+                            saveContact()
+                        }
+                        .disabled(firstName.isEmpty && lastName.isEmpty && company.isEmpty)
                     }
-                    .disabled(firstName.isEmpty && lastName.isEmpty && company.isEmpty)
                 }
+            }
+            .disabled(isSaving)
+            .alert("Error", isPresented: $showError) {
+                Button("OK", role: .cancel) {}
+            } message: {
+                Text(errorMessage)
             }
         }
     }
 
     private func saveContact() {
-        // TODO: Implement save logic with CreateContactUseCase
-        dismiss()
+        let emails: [CreateContactEmailRequest]? = email.isEmpty ? nil : [
+            CreateContactEmailRequest(email: email, label: "primary", isPrimary: true)
+        ]
+        let phones: [CreateContactPhoneRequest]? = phone.isEmpty ? nil : [
+            CreateContactPhoneRequest(phone: phone, label: "primary", isPrimary: true)
+        ]
+        let request = CreateContactRequest(
+            firstName: firstName.isEmpty ? nil : firstName,
+            lastName: lastName.isEmpty ? nil : lastName,
+            company: company.isEmpty ? nil : company,
+            jobTitle: jobTitle.isEmpty ? nil : jobTitle,
+            emails: emails,
+            phones: phones,
+            notes: notes.isEmpty ? nil : notes,
+            isFavorite: isFavorite,
+            tags: nil
+        )
+
+        isSaving = true
+        Task {
+            do {
+                _ = try await createContactUseCase.execute(request)
+                await MainActor.run {
+                    onContactCreated?()
+                    dismiss()
+                }
+            } catch {
+                await MainActor.run {
+                    isSaving = false
+                    errorMessage = error.localizedDescription
+                    showError = true
+                }
+            }
+        }
     }
 }
 
