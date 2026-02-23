@@ -156,6 +156,11 @@ struct NotificationsView: View {
 }
 
 struct PrivacyView: View {
+    @State private var showingClearCacheConfirmation = false
+    @State private var showingCacheCleared = false
+    @State private var cacheSize: String = ""
+    @State private var clearedSize: String = ""
+
     var body: some View {
         Form {
             Section("Security") {
@@ -164,13 +169,92 @@ struct PrivacyView: View {
             }
 
             Section {
-                Button("Clear Cache") {
-                    // TODO: Implement
+                Button {
+                    showingClearCacheConfirmation = true
+                } label: {
+                    HStack {
+                        Text("Clear Cache")
+                        Spacer()
+                        Text(cacheSize)
+                            .foregroundColor(.secondary)
+                    }
                 }
+            } footer: {
+                Text("Clears cached network responses and temporary files.")
             }
         }
         .navigationTitle("Privacy & Security")
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            cacheSize = CacheManager.formattedCacheSize()
+        }
+        .confirmationDialog("Clear Cache", isPresented: $showingClearCacheConfirmation) {
+            Button("Clear Cache", role: .destructive) {
+                clearedSize = CacheManager.formattedCacheSize()
+                CacheManager.clearAllCaches()
+                cacheSize = CacheManager.formattedCacheSize()
+                showingCacheCleared = true
+            }
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text("This will remove all cached data. This action cannot be undone.")
+        }
+        .alert("Cache Cleared", isPresented: $showingCacheCleared) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text("\(clearedSize) of cached data has been removed.")
+        }
+    }
+}
+
+// MARK: - Cache Manager
+
+enum CacheManager {
+    static func clearAllCaches() {
+        URLCache.shared.removeAllCachedResponses()
+        clearTemporaryDirectory()
+    }
+
+    static func totalCacheSizeInBytes() -> Int64 {
+        let urlCacheSize = Int64(URLCache.shared.currentDiskUsage + URLCache.shared.currentMemoryUsage)
+        let tempSize = temporaryDirectorySizeInBytes()
+        return urlCacheSize + tempSize
+    }
+
+    static func formattedCacheSize() -> String {
+        let bytes = totalCacheSizeInBytes()
+        return ByteCountFormatter.string(fromByteCount: bytes, countStyle: .file)
+    }
+
+    private static func clearTemporaryDirectory() {
+        let fileManager = FileManager.default
+        let tmpDir = fileManager.temporaryDirectory
+        guard let contents = try? fileManager.contentsOfDirectory(
+            at: tmpDir,
+            includingPropertiesForKeys: nil
+        ) else { return }
+
+        for fileURL in contents {
+            try? fileManager.removeItem(at: fileURL)
+        }
+    }
+
+    private static func temporaryDirectorySizeInBytes() -> Int64 {
+        let fileManager = FileManager.default
+        let tmpDir = fileManager.temporaryDirectory
+        guard let contents = try? fileManager.contentsOfDirectory(
+            at: tmpDir,
+            includingPropertiesForKeys: [.fileSizeKey]
+        ) else { return 0 }
+
+        var totalSize: Int64 = 0
+        for fileURL in contents {
+            if let resourceValues = try? fileURL.resourceValues(forKeys: [.fileSizeKey]),
+               let fileSize = resourceValues.fileSize {
+                totalSize += Int64(fileSize)
+            }
+        }
+        return totalSize
     }
 }
 
