@@ -1,7 +1,15 @@
 import SwiftUI
 
 struct UserDetailView: View {
-    let user: User
+    @EnvironmentObject var container: DIContainer
+    @SwiftUI.Environment(\.dismiss) private var dismiss: DismissAction
+
+    @State var user: User
+    @State private var showingEditUser = false
+    @State private var showingDeleteConfirmation = false
+    @State private var isDeleting = false
+    @State private var showError = false
+    @State private var errorMessage = ""
 
     var body: some View {
         ScrollView {
@@ -36,13 +44,13 @@ struct UserDetailView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Menu {
                     Button {
-                        // TODO: Edit user
+                        showingEditUser = true
                     } label: {
                         Label("Edit", systemImage: "pencil")
                     }
 
                     Button(role: .destructive) {
-                        // TODO: Delete user
+                        showingDeleteConfirmation = true
                     } label: {
                         Label("Delete", systemImage: "trash")
                     }
@@ -50,6 +58,54 @@ struct UserDetailView: View {
                     Image(systemName: "ellipsis.circle")
                 }
             }
+        }
+        .confirmationDialog(
+            "Delete User",
+            isPresented: $showingDeleteConfirmation,
+            titleVisibility: .visible
+        ) {
+            Button("Delete", role: .destructive) {
+                Task { await deleteUser() }
+            }
+        } message: {
+            Text("Are you sure you want to delete \(user.fullName.isEmpty ? user.email : user.fullName)? This action cannot be undone.")
+        }
+        .alert("Error", isPresented: $showError) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(errorMessage)
+        }
+        .sheet(isPresented: $showingEditUser) {
+            EditUserView(
+                user: user,
+                updateUserUseCase: container.makeUpdateUserUseCase(),
+                onUserUpdated: { updatedUser in
+                    user = updatedUser
+                }
+            )
+        }
+        .overlay {
+            if isDeleting {
+                Color.black.opacity(0.2)
+                    .ignoresSafeArea()
+                ProgressView("Deleting...")
+                    .padding()
+                    .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 12))
+            }
+        }
+    }
+
+    private func deleteUser() async {
+        isDeleting = true
+        defer { isDeleting = false }
+
+        do {
+            let deleteUseCase = container.makeDeleteUserUseCase()
+            try await deleteUseCase.execute(id: user.id)
+            dismiss()
+        } catch {
+            errorMessage = error.localizedDescription
+            showError = true
         }
     }
 }
@@ -179,6 +235,115 @@ struct InfoRow: View {
     }
 }
 
+// MARK: - Edit User View
+
+struct EditUserView: View {
+    @SwiftUI.Environment(\.dismiss) private var dismiss: DismissAction
+
+    let user: User
+    let updateUserUseCase: UpdateUserUseCase
+    var onUserUpdated: ((User) -> Void)?
+
+    @State private var firstName: String
+    @State private var lastName: String
+    @State private var role: UserRole
+    @State private var status: UserStatus
+
+    @State private var isSaving = false
+    @State private var showError = false
+    @State private var errorMessage = ""
+
+    init(user: User, updateUserUseCase: UpdateUserUseCase, onUserUpdated: ((User) -> Void)? = nil) {
+        self.user = user
+        self.updateUserUseCase = updateUserUseCase
+        self.onUserUpdated = onUserUpdated
+        _firstName = State(initialValue: user.firstName ?? "")
+        _lastName = State(initialValue: user.lastName ?? "")
+        _role = State(initialValue: user.role)
+        _status = State(initialValue: user.status)
+    }
+
+    var body: some View {
+        NavigationStack {
+            Form {
+                Section("User Information") {
+                    TextField("First Name", text: $firstName)
+                        .textContentType(.givenName)
+                        .autocorrectionDisabled()
+                    TextField("Last Name", text: $lastName)
+                        .textContentType(.familyName)
+                        .autocorrectionDisabled()
+                }
+
+                Section("Role") {
+                    Picker("Role", selection: $role) {
+                        ForEach(UserRole.commonRoles, id: \.self) { role in
+                            Text(role.displayName).tag(role)
+                        }
+                    }
+                }
+
+                Section("Status") {
+                    Picker("Status", selection: $status) {
+                        Text("Active").tag(UserStatus.active)
+                        Text("Pending").tag(UserStatus.pending)
+                        Text("Banned").tag(UserStatus.banned)
+                        Text("Rejected").tag(UserStatus.rejected)
+                    }
+                }
+            }
+            .navigationTitle("Edit User")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Cancel") {
+                        dismiss()
+                    }
+                    .disabled(isSaving)
+                }
+
+                ToolbarItem(placement: .confirmationAction) {
+                    if isSaving {
+                        ProgressView()
+                    } else {
+                        Button("Save") {
+                            Task { await saveUser() }
+                        }
+                    }
+                }
+            }
+            .disabled(isSaving)
+            .alert("Error", isPresented: $showError) {
+                Button("OK", role: .cancel) {}
+            } message: {
+                Text(errorMessage)
+            }
+        }
+    }
+
+    private func saveUser() async {
+        isSaving = true
+        defer { isSaving = false }
+
+        let request = UpdateUserRequest(
+            firstName: firstName.trimmingCharacters(in: .whitespacesAndNewlines),
+            lastName: lastName.trimmingCharacters(in: .whitespacesAndNewlines),
+            role: role,
+            status: status,
+            organizationId: user.organizationId
+        )
+
+        do {
+            let updatedUser = try await updateUserUseCase.execute(id: user.id, data: request)
+            onUserUpdated?(updatedUser)
+            dismiss()
+        } catch {
+            errorMessage = error.localizedDescription
+            showError = true
+        }
+    }
+}
+
 // MARK: - Preview
 
 #Preview {
@@ -195,5 +360,6 @@ struct InfoRow: View {
             createdAt: Date(),
             updatedAt: Date()
         ))
+        .environmentObject(DIContainer())
     }
 }
