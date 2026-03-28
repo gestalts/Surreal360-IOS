@@ -98,6 +98,8 @@ struct SettingsRow: View {
 // MARK: - Placeholder Views
 
 struct AccountView: View {
+    @State private var showingChangePassword = false
+
     var body: some View {
         Form {
             Section("Profile") {
@@ -109,12 +111,105 @@ struct AccountView: View {
 
             Section {
                 Button("Change Password") {
-                    // TODO: Implement
+                    showingChangePassword = true
                 }
             }
         }
         .navigationTitle("Account")
         .navigationBarTitleDisplayMode(.inline)
+        .sheet(isPresented: $showingChangePassword) {
+            ChangePasswordView()
+        }
+    }
+}
+
+// MARK: - Change Password View
+
+struct ChangePasswordView: View {
+    @EnvironmentObject var container: DIContainer
+    @Environment(\.dismiss) private var dismiss
+    @State private var newPassword = ""
+    @State private var confirmPassword = ""
+    @State private var isLoading = false
+    @State private var showError = false
+    @State private var errorMessage = ""
+    @State private var showSuccess = false
+
+    private var isFormValid: Bool {
+        newPassword.count >= 8 && newPassword == confirmPassword
+    }
+
+    var body: some View {
+        NavigationStack {
+            Form {
+                Section {
+                    SecureField("New Password", text: $newPassword)
+                        .textContentType(.newPassword)
+                    SecureField("Confirm Password", text: $confirmPassword)
+                        .textContentType(.newPassword)
+                } footer: {
+                    VStack(alignment: .leading, spacing: 4) {
+                        if newPassword.count > 0 && newPassword.count < 8 {
+                            Text("Password must be at least 8 characters.")
+                                .foregroundColor(.red)
+                        }
+                        if !confirmPassword.isEmpty && newPassword != confirmPassword {
+                            Text("Passwords do not match.")
+                                .foregroundColor(.red)
+                        }
+                    }
+                }
+
+                Section {
+                    Button {
+                        Task {
+                            await changePassword()
+                        }
+                    } label: {
+                        HStack {
+                            Spacer()
+                            if isLoading {
+                                ProgressView()
+                            } else {
+                                Text("Update Password")
+                            }
+                            Spacer()
+                        }
+                    }
+                    .disabled(!isFormValid || isLoading)
+                }
+            }
+            .navigationTitle("Change Password")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Cancel") { dismiss() }
+                }
+            }
+            .alert("Error", isPresented: $showError) {
+                Button("OK", role: .cancel) {}
+            } message: {
+                Text(errorMessage)
+            }
+            .alert("Password Updated", isPresented: $showSuccess) {
+                Button("OK") { dismiss() }
+            } message: {
+                Text("Your password has been changed successfully.")
+            }
+        }
+    }
+
+    private func changePassword() async {
+        isLoading = true
+        defer { isLoading = false }
+
+        do {
+            try await container.authService.updatePassword(newPassword: newPassword)
+            showSuccess = true
+        } catch {
+            errorMessage = error.localizedDescription
+            showError = true
+        }
     }
 }
 
