@@ -63,7 +63,14 @@ struct UsersListView: View {
             Text(viewModel.errorMessage)
         }
         .sheet(isPresented: $showingAddUser) {
-            AddUserView()
+            AddUserView(
+                createUserUseCase: container.makeCreateUserUseCase(),
+                onUserCreated: {
+                    Task {
+                        await viewModel.loadUsers()
+                    }
+                }
+            )
         }
         .task {
             await viewModel.loadUsers()
@@ -181,22 +188,45 @@ struct EmptyStateView: View {
     }
 }
 
-// MARK: - Add User View (Placeholder)
+// MARK: - Add User View
 
 struct AddUserView: View {
     @SwiftUI.Environment(\.dismiss) private var dismiss: DismissAction
+
+    let createUserUseCase: CreateUserUseCase
+    var onUserCreated: (() -> Void)?
+
+    @State private var firstName = ""
+    @State private var lastName = ""
+    @State private var email = ""
+    @State private var password = ""
+    @State private var role: UserRole = .member
+
+    @State private var isSaving = false
+    @State private var showError = false
+    @State private var errorMessage = ""
 
     var body: some View {
         NavigationStack {
             Form {
                 Section("User Information") {
-                    TextField("First Name", text: .constant(""))
-                    TextField("Last Name", text: .constant(""))
-                    TextField("Email", text: .constant(""))
+                    TextField("First Name", text: $firstName)
+                        .textContentType(.givenName)
+                        .autocorrectionDisabled()
+                    TextField("Last Name", text: $lastName)
+                        .textContentType(.familyName)
+                        .autocorrectionDisabled()
+                    TextField("Email", text: $email)
+                        .textContentType(.emailAddress)
+                        .keyboardType(.emailAddress)
+                        .textInputAutocapitalization(.never)
+                        .autocorrectionDisabled()
+                    SecureField("Password", text: $password)
+                        .textContentType(.newPassword)
                 }
 
                 Section("Role") {
-                    Picker("Role", selection: .constant(UserRole.member)) {
+                    Picker("Role", selection: $role) {
                         ForEach(UserRole.commonRoles, id: \.self) { role in
                             Text(role.displayName).tag(role)
                         }
@@ -210,15 +240,51 @@ struct AddUserView: View {
                     Button("Cancel") {
                         dismiss()
                     }
+                    .disabled(isSaving)
                 }
 
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Save") {
-                        // TODO: Implement save
-                        dismiss()
+                    if isSaving {
+                        ProgressView()
+                    } else {
+                        Button("Save") {
+                            Task {
+                                await saveUser()
+                            }
+                        }
+                        .disabled(email.isEmpty || password.isEmpty)
                     }
                 }
             }
+            .disabled(isSaving)
+            .alert("Error", isPresented: $showError) {
+                Button("OK", role: .cancel) {}
+            } message: {
+                Text(errorMessage)
+            }
+        }
+    }
+
+    private func saveUser() async {
+        isSaving = true
+        defer { isSaving = false }
+
+        let request = CreateUserRequest(
+            email: email.trimmingCharacters(in: .whitespacesAndNewlines),
+            password: password,
+            firstName: firstName.isEmpty ? nil : firstName.trimmingCharacters(in: .whitespacesAndNewlines),
+            lastName: lastName.isEmpty ? nil : lastName.trimmingCharacters(in: .whitespacesAndNewlines),
+            role: role,
+            organizationId: nil
+        )
+
+        do {
+            _ = try await createUserUseCase.execute(request)
+            onUserCreated?()
+            dismiss()
+        } catch {
+            errorMessage = error.localizedDescription
+            showError = true
         }
     }
 }
