@@ -277,18 +277,18 @@ struct AboutView: View {
 }
 
 struct HelpView: View {
+    @Environment(\.openURL) private var openURL
+
     var body: some View {
         Form {
             Section("Support") {
                 Button("Contact Support") {
-                    // TODO: Implement
+                    openURL(URL(string: "mailto:support@surreal360.com")!)
                 }
                 Button("Report a Bug") {
-                    // TODO: Implement
+                    openURL(URL(string: "mailto:support@surreal360.com?subject=Bug%20Report")!)
                 }
-                Button("Documentation") {
-                    // TODO: Implement
-                }
+                Link("Documentation", destination: URL(string: "https://surreal360.com/docs")!)
             }
         }
         .navigationTitle("Help & Support")
